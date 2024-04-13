@@ -42,12 +42,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	public void draw(Graphics g) {
 		
 		if(running) {
-			/*
-			for(int i=0;i<SCREEN_HEIGHT/UNIT_SIZE;i++) {
-				g.drawLine(i*UNIT_SIZE, 0, i*UNIT_SIZE, SCREEN_HEIGHT);
-				g.drawLine(0, i*UNIT_SIZE, SCREEN_WIDTH, i*UNIT_SIZE);
-			}
-			*/
+			
 			g.setColor(Color.red);
 			g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
 		
@@ -58,7 +53,6 @@ public class GamePanel extends JPanel implements ActionListener{
 				}
 				else {
 					g.setColor(new Color(45,180,0));
-					//g.setColor(new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255)));
 					g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
 				}			
 			}
@@ -106,25 +100,20 @@ public class GamePanel extends JPanel implements ActionListener{
 		}
 	}
 	public void checkCollisions() {
-		//checks if head collides with body
 		for(int i = bodyParts;i>0;i--) {
 			if((x[0] == x[i])&& (y[0] == y[i])) {
 				running = false;
 			}
 		}
-		//check if head touches left border
 		if(x[0] < 0) {
 			running = false;
 		}
-		//check if head touches right border
 		if(x[0] > SCREEN_WIDTH) {
 			running = false;
 		}
-		//check if head touches top border
 		if(y[0] < 0) {
 			running = false;
 		}
-		//check if head touches bottom border
 		if(y[0] > SCREEN_HEIGHT) {
 			running = false;
 		}
@@ -134,7 +123,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		}
 	}
 	public void gameOver(Graphics g) {
-		//Score
+		
 		g.setColor(Color.red);
 		g.setFont( new Font("Ink Free",Font.BOLD, 40));
 		FontMetrics metrics1 = getFontMetrics(g.getFont());
