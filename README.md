@@ -6,4 +6,3 @@ Open the project in your Java IDE and run 'SnakeGame.java'
 
 ## Controls
 - Arrow keys: move the snake
-- Space: Restart the game over
